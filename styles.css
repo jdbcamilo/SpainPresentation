@@ -126,9 +126,8 @@ body {
     background: var(--bg-light);
     color: var(--primary-red);
 }
-
 /* ================================
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR PRINCIPAL RESPONSIVE
    ================================ */
 .container {
     max-width: 1200px;
@@ -141,7 +140,7 @@ body {
 }
 
 /* ================================
-   HEADER
+   HEADER RESPONSIVE
    ================================ */
 .header {
     background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
@@ -158,6 +157,7 @@ body {
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     animation: slideInDown 1s ease-out;
+    line-height: 1.2;
 }
 
 .header-content h2 {
@@ -165,6 +165,7 @@ body {
     opacity: 0.9;
     margin-bottom: 1rem;
     animation: slideInUp 1s ease-out 0.2s both;
+    line-height: 1.3;
 }
 
 .header-decoration {
@@ -174,6 +175,7 @@ body {
     gap: 0.5rem;
     font-size: 1.1rem;
     animation: fadeIn 1s ease-out 0.4s both;
+    flex-wrap: wrap;
 }
 
 .header-wave {
@@ -186,6 +188,166 @@ body {
     clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
 }
 
+/* ================================
+   RESPONSIVE BREAKPOINTS
+   ================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        margin: 0 1rem;
+        border-radius: 12px;
+    }
+    
+    .header {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+    
+    .header-content h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin-bottom: 0.75rem;
+    }
+    
+    .header-content h2 {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        margin-bottom: 1.25rem;
+    }
+    
+    .header-decoration {
+        font-size: 1rem;
+        gap: 0.4rem;
+    }
+    
+    .header-wave {
+        height: 40px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .container {
+        margin: 0 0.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+        padding: 2.5rem 1rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-yellow) 100%);
+    }
+    
+    .header-content h1 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        line-height: 1.1;
+    }
+    
+    .header-content h2 {
+        font-size: clamp(0.9rem, 4.5vw, 1.3rem);
+        margin-bottom: 1rem;
+        opacity: 0.95;
+        line-height: 1.2;
+    }
+    
+    .header-decoration {
+        font-size: 0.95rem;
+        gap: 0.3rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header-wave {
+        height: 30px;
+        clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .container {
+        margin: 0 0.25rem;
+        border-radius: 6px;
+    }
+    
+    .header {
+        padding: 2rem 0.75rem 1.25rem;
+    }
+    
+    .header-content h1 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+        margin-bottom: 0.4rem;
+        line-height: 1.1;
+    }
+    
+    .header-content h2 {
+        font-size: clamp(0.8rem, 5vw, 1.1rem);
+        margin-bottom: 0.8rem;
+        line-height: 1.2;
+    }
+    
+    .header-decoration {
+        font-size: 0.85rem;
+        gap: 0.2rem;
+        line-height: 1.3;
+    }
+    
+    .header-wave {
+        height: 25px;
+    }
+}
+
+/* Landscape móviles (orientación horizontal) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .header-content h1 {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        margin-bottom: 0.3rem;
+    }
+    
+    .header-content h2 {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        margin-bottom: 0.8rem;
+    }
+    
+    .header-decoration {
+        font-size: 0.9rem;
+        flex-direction: row;
+    }
+    
+    .header-wave {
+        height: 20px;
+    }
+}
+
+/* Ajustes adicionales para muy pequeñas pantallas */
+@media (max-width: 280px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .header {
+        padding: 1.5rem 0.5rem 1rem;
+    }
+    
+    .header-content h1 {
+        font-size: 1.4rem;
+        line-height: 1.1;
+    }
+    
+    .header-content h2 {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+    
+    .header-decoration {
+        font-size: 0.75rem;
+    }
+}
 /* ================================
    CONTENIDO PRINCIPAL
    ================================ */
@@ -331,14 +493,47 @@ body {
     gap: 0.2rem;
 }
 
-/* ================================
-   BANDERA
-   ================================ */
+
+Te ayudo a hacer el diseño responsive para que la bandera se vea bien en móviles. El problema principal es que estás usando un grid de dos columnas y tamaños fijos. Aquí tienes la solución:
+
+
+CSS Responsive para Bandera
+Código 
+Los cambios principales que hice para que sea responsive:
+
+🔧 Cambios clave:
+
+Bandera flexible: Cambié width: 250px por width: 100% y max-width: 250px
+Proporción correcta: Agregué aspect-ratio: 3/2 para mantener la forma de bandera
+Escudo responsivo: Cambié posiciones fijas (60px) por porcentajes (24%)
+Grid adaptable: En móviles cambia a una sola columna
+📱 Breakpoints:
+
+768px: Cambia a columna única (tablets)
+480px: Optimizado para móviles
+320px: Móviles muy pequeños
+✨ Mejoras adicionales:
+
+El escudo ahora escala proporcionalmente
+Los elementos de significado se adaptan mejor en móvil
+Mejor espaciado y padding responsivo
+Bordes más delgados en pantallas pequeñas
+Reemplaza tu CSS actual con este código y la bandera se verá perfecta en todos los dispositivos. ¿Te funciona bien ahora en el móvil?
+
+
+
+
+
+
+
+/* ================================    BANDERA RESPONSIVE    ================================ */
+
 .flag-showcase {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
+    padding: 1rem;
 }
 
 .flag-container {
@@ -346,8 +541,10 @@ body {
 }
 
 .flag {
-    width: 250px;
-    height: 167px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 3/2; /* Mantiene proporción de bandera */
     border: 3px solid var(--text-dark);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
@@ -396,11 +593,11 @@ body {
 
 .coat-of-arms {
     position: absolute;
-    left: 60px;
+    left: 24%; /* Cambiado de 60px a porcentaje */
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 16%; /* Responsivo basado en el ancho de la bandera */
+    height: 24%; /* Responsivo basado en la altura de la bandera */
     background: #8B4513;
     border-radius: 50%;
     border: 2px solid var(--text-dark);
@@ -408,6 +605,7 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--white);
+    font-size: 0.8rem; /* Tamaño de texto responsivo */
 }
 
 .flag-meaning {
@@ -418,7 +616,7 @@ body {
 
 .meaning-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
     background: var(--bg-light);
@@ -436,15 +634,111 @@ body {
     height: 20px;
     border-radius: 50%;
     flex-shrink: 0;
+    margin-top: 2px; /* Alineación con el texto */
 }
 
-.color-dot.red { background: var(--primary-red); }
-.color-dot.yellow { background: var(--primary-yellow); }
-.color-dot.shield { background: #8B4513; }
+.color-dot.red { 
+    background: var(--primary-red); 
+}
+
+.color-dot.yellow { 
+    background: var(--primary-yellow); 
+}
+
+.color-dot.shield { 
+    background: #8B4513; 
+}
 
 .meaning-item h5 {
     margin-bottom: 0.5rem;
     color: var(--primary-red);
+    font-size: 1.1rem;
+}
+
+.meaning-item p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ================================    RESPONSIVE BREAKPOINTS    ================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .flag-showcase {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .flag {
+        max-width: 300px;
+    }
+    
+    .meaning-item {
+        padding: 0.8rem;
+        gap: 0.8rem;
+    }
+    
+    .meaning-item h5 {
+        font-size: 1rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .flag-showcase {
+        gap: 2rem;
+        padding: 0.5rem;
+    }
+    
+    .flag {
+        max-width: 280px;
+        border: 2px solid var(--text-dark);
+    }
+    
+    .coat-of-arms {
+        border: 1px solid var(--text-dark);
+        font-size: 0.7rem;
+    }
+    
+    .meaning-item {
+        padding: 0.75rem;
+        gap: 0.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .color-dot {
+        width: 18px;
+        height: 18px;
+        margin-top: 0;
+    }
+    
+    .meaning-item h5 {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .meaning-item p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+    .flag {
+        max-width: 250px;
+    }
+    
+    .flag-showcase {
+        padding: 0.25rem;
+    }
+    
+    .meaning-item {
+        padding: 0.5rem;
+    }
 }
 
 /* ================================
